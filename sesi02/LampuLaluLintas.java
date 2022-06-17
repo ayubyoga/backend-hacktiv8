@@ -5,26 +5,29 @@ import java.util.Scanner;
 public class LampuLaluLintas {
     public static void main(String[] args) {
 
-    }
+        // membuat variable dan scanner
+        String lampu;
+        Scanner scan = new Scanner(System.in);
 
-    // variabel dan scanner
-    String lampu;
-    Scanner scan = new Scanner(System.in);
+        // mengambil input
+        System.out.print("Inputkan warna lampu : ");
+        lampu = scan.nextLine();
 
-    // input
-    System.out.print("Inputkan nama warna: ");lampu=scan.nextLine();
-
-    switch(lampu){
-            case merah:
-                System.out.println("Lampu merah, berhenti!");
+        switch (lampu) {
+            case "merah":
+                System.out.println("Lampu merah, berhenti !");
                 break;
-            case kuning:
+            case "kuning":
                 System.out.println("Lampu kuning, harap hati-hati!");
                 break;
-            case merah:
-                System.out.println("Lampu hijau, Silahkan jalan!");
+            case "hijau":
+                System.out.println("Lampu hijau, silahkan jalan");
                 break;
             default:
-                System.out.println("Warna Lampu Salah!");
+                System.out.println("Warna lampu salah");
+        }
+
+        scan.close();
     }
+
 }

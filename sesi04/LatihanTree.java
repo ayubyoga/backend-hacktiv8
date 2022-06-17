@@ -65,6 +65,15 @@ public class LatihanTree {
 class node {
     node left, right;
     int value;
+    private static int i;
+
+    public static int getI() {
+        return i;
+    }
+
+    public static void setI(int i) {
+        node.i = i;
+    }
 
     public void input(int a) {
         value = a;
@@ -79,13 +88,13 @@ class node {
 
         while (menu != 3) {
             System.out.print("1. input\n2. view\n3. exit\n Pilihan Anda: ");
-            menu = tr.in.nextInt();
+            menu = LatihanTree.in.nextInt();
             if (menu == 1) {
                 System.out.print("Masukkan Angka :");
-                a = tr.in.nextInt();
+                a = LatihanTree.in.nextInt();
                 if (r == 1) {
                     root.input(a);
-                    r--;
+                    i = r--;
                 } else
                     tr.insert(root, a);
             } else if (menu == 2)

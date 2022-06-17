@@ -4,7 +4,7 @@ public class Utama {
     public static void main(String[] args) {
 
         // Creating 2D Object
-        BangunDatar bangunDatar = new BangunDatar();
+        // BangunDatar bangunDatar = new BangunDatar();
 
         // Objek Persegi dan mengisi nilai prop
         Persegi persegi = new Persegi();

@@ -6,7 +6,7 @@ public class MakananPadang {
         RestoranPadang data = new RestoranPadang();
 
         // membuat data pada variable
-        data.setMenu("Ayam Pop Komplit Sayur Nangka plus Perkedel Kentang");
+        data.setMenu("Rendang-Cincang Komplit Sayur Nangka plus Perkedel Kentang");
         data.setHarga(35000);
         data.setSpesial(true);
 
