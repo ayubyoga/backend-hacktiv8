@@ -1,4 +1,4 @@
-//package Latihan;
+package sesi05.Latihan;
 
 public class Persegi extends Utama {
 

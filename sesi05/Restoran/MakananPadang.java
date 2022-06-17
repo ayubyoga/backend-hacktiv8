@@ -1,6 +1,4 @@
-package Restoran;
-
-//package Restoran;
+package sesi05.Restoran;
 
 public class MakananPadang {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package sesi_02;
+package sesi02;
 
 import java.util.Scanner;
 
@@ -15,13 +15,13 @@ public class LampuLaluLintas {
     System.out.print("Inputkan nama warna: ");lampu=scan.nextLine();
 
     switch(lampu){
-            case "merah":
+            case merah:
                 System.out.println("Lampu merah, berhenti!");
                 break;
-            case "kuning":
+            case kuning:
                 System.out.println("Lampu kuning, harap hati-hati!");
                 break;
-            case "merah":
+            case merah:
                 System.out.println("Lampu hijau, Silahkan jalan!");
                 break;
             default:

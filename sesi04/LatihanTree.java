@@ -1,5 +1,5 @@
+package sesi04;
 
-//package sesi04;
 import java.util.Scanner;
 
 public class LatihanTree {

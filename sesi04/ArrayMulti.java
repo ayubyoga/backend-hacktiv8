@@ -1,3 +1,5 @@
+package sesi04;
+
 public class ArrayMulti {
     public static void main(String[] args) {
         String[][] framework = { { "Java", "Kotlin" }, { "React", "Reactnative" }, { "PHP", "Laravel" } };

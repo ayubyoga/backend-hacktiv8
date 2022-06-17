@@ -1,4 +1,4 @@
-package Assesment2_AyubYogaPratama_JVSB001ONL016;
+package sesi05.Assesment2_AyubYogaPratama_JVSB001ONL016;
 
 import java.util.Scanner;
 

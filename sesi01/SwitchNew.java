@@ -1,4 +1,4 @@
-package sesi_01;
+package sesi01;
 
 public class SwitchNew {
     public static void main(String[] args) {

@@ -1,37 +1,33 @@
-//package Polymorphism;
+package sesi05.Polymorphism;
 
 public class Cetak {
+
     static double maxNumber(double a, double b) {
-
-        // method dan parameter berbeda
-        // tipe data double
-
-        if (a > b) {
+        if (a > b)
             return a;
-        } else {
+        else
             return b;
-        }
     }
 
     static int maxNumber(int a, int b) {
-
-        // method dan parameter berbeda
-        // tipe data integer
-
-        if (a > b) {
+        if (a > b)
             return a;
-        } else {
+        else
             return b;
-        }
     }
 
     public static void main(String[] args) {
-        System.out.println(maxNumber(10, 20));
-        System.out.print(4);
+        //
+        Manusia cowok = new Cowok();
+        Manusia cewek = new Cewek();
 
-        // hasil dari nila argumennya, akan sesuai dengan tipe parameternya
-        // 20 integer
-        // 7.5 double
+        cowok.nyanyiLagu();
+        cewek.nyanyiLagu();
 
+        // overloading
+
+        System.out.println(maxNumber(10, 20)); // method int
+        System.out.println(maxNumber(5.97, 10.21)); // method double
     }
+
 }

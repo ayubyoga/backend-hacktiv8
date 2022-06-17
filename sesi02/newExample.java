@@ -1,4 +1,4 @@
-package sesi_02;
+package sesi02;
 
 public class newExample {
 

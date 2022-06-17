@@ -1,4 +1,4 @@
-//package Polymorphism;
+package sesi05.Polymorphism;
 
 public class Nilai {
     int num1;

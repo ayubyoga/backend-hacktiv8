@@ -1,4 +1,4 @@
-package sesi_03;
+package sesi03;
 
 //import java.util.Scanner;
 

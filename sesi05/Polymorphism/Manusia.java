@@ -1,49 +1,26 @@
+package sesi05.Polymorphism;
+
 //package Polymorphism;
 
 abstract class Manusia {
-
-    // deklarasi class dan method tipe abstract
     protected abstract void nyanyiLagu();
 
 }
 
-class Pria extends Manusia {
+class Cowok extends Manusia {
 
-    // menggunakan method dari class abstract Manusia
     @Override
     protected void nyanyiLagu() {
-        System.out.println(" da du du di dam ");
-        // statement dari perilaku yang menampilkan output pesan text yang berbeda dari
-        // class manusia
+        //
+        System.out.println("la la la lost you");
     }
 }
 
-class Wanita extends Manusia {
+class Cewek extends Manusia {
 
-    // menggunakan method dari class abstract Manusia
     @Override
     protected void nyanyiLagu() {
-        System.out.println(" du ri dam dam ");
-        // statement dari perilaku yang menampilkan output pesan text yang berbeda dari
-        // class manusia
-    }
-}
-
-public class Cetak {
-
-    public static void main(String[] args) {
-
-        // buat object referensi class manusia, dengan cons pria
-        Manusia Pria = new Pria();
-
-        // menampilkan output pada method yang ada di class pria
-        Pria.nyanyiLagu();
-
-        // buat object referensi class manusia, dengan cons wanita
-        Manusia Wanita = new Wanita();
-
-        // menampilkan output pada method yang ada di class wanita
-        Wanita.nyanyiLagu();
-
+        //
+        System.out.println("hu hu hu hu hu");
     }
 }

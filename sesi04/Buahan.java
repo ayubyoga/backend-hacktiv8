@@ -1,3 +1,5 @@
+package sesi04;
+
 import java.util.Scanner;
 
 public class Buahan {

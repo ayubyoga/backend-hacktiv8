@@ -1,4 +1,4 @@
-package Restoran;
+package sesi05.Restoran;
 
 public class RestoranPadang {
 

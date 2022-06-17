@@ -1,3 +1,5 @@
+package sesi03.Assesment1_AyubYogaPratama_JVSB001ONL016;
+
 public class LatihanFour {
     public static void main(String[] args) {
 

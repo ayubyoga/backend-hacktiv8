@@ -1,3 +1,5 @@
+package sesi03.Assesment1_AyubYogaPratama_JVSB001ONL016;
+
 //package sesi_03.sesi_03_Assignment01;
 
 public class LatihanTwo {
