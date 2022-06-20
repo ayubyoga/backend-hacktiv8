@@ -24,6 +24,8 @@ public class BinarySearch {
         last = n - 1;
         middle = (first + last) / 2;
 
+        in.close();
+
         while (first <= last) {
             if (array[middle] < search) {
                 first = middle + 1;
@@ -41,6 +43,5 @@ public class BinarySearch {
 
         }
 
-        in.close();
     }
 }
