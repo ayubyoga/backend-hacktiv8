@@ -1,0 +1,169 @@
+
+create view req_2_soal_b as
+select
+   twak.id_proyek,
+   count(twak.id_proyek) as total_proyek_1
+from
+   tb_waktu_kerja twak
+where
+   id_proyek=1
+
+
+create view req_2_soal_c as
+select
+   count(tpe.gaji_pegawai) as gaji_pegawai_diatas_3juta500
+from
+   tb_pegawai tpe
+where
+   gaji_pegawai>3500000
+
+
+create view req_2_soal_d as
+select
+   count(tpr.id_departemen) as total_proyek_departemen_2
+from
+   tb_proyek tpr
+where
+   id_departemen = 2
+
+
+
+create view req_2_soal_f as
+select 
+   td.nama_departemen,
+count(tpe.id_pegawai) as 'banyak_pegawai'
+from
+   tb_pegawai tpe
+join
+   tb_departemen td
+on
+   tpe.id_departemen = td.id_departemen
+group by
+   td.id_departemen
+
+create view req_2_soal_g as
+select
+   tpr.nama_proyek,
+sum(twak.waktu_kerja) as 'total_jam_kerja_perminggu'
+from
+   tb_waktu_kerja twak
+join
+   tb_proyek tpr
+on
+   tpr.id_proyek = twak.id_proyek
+group by
+   twak.id_proyek
+order by 
+   total_jam_kerja_perminggu desc
+
+
+create view req_2_soal_h as
+select
+   tpe.nama_depan as 'nama_pegawai',
+sum(twak.waktu_kerja) as 'total_waktu_kerja'
+from
+   tb_pegawai tpe 
+join
+   tb_waktu_kerja twak
+on
+   tpe.id_pegawai = twak.id_pegawai
+group by
+   twak.id_pegawai
+having sum(twak.waktu_kerja) > 140
+order by total_waktu_kerja desc
+
+
+
+create view req_2_soal_i as
+select
+   tpe.nama_depan as 'nama_pegawai',
+sum(twak.waktu_kerja) as 'total_waktu_kerja',
+case
+   when sum(twak.waktu_kerja) > 200 then 'Bonus 50%'
+   when sum(twak.waktu_kerja) > 150 then 'Bonus 25%'
+   else 'Bonus 10%'
+end as 'bonus_kinerja'
+from
+   tb_pegawai tpe
+join
+   tb_waktu_kerja twak
+on
+   tpe.id_pegawai = twak.id_pegawai
+group by
+   twak.id_pegawai
+order by total_waktu_kerja desc
+
+
+
+create view req_2_soal_j as
+select
+   tpe.nama_depan as 'nama_pegawai',
+count(twak.id_proyek) as 'jumlah_proyek'
+from
+   tb_pegawai tpe
+join
+   tb_waktu_kerja twak
+on
+   tpe.id_pegawai = twak.id_pegawai
+group by
+   tpe.id_pegawai
+order by jumlah_proyek desc
+
+create view req_2_soal_k as
+select
+   tpe.nama_depan as 'nama_pegawai',
+count(twak.id_proyek) as 'jumlah_proyek'
+from
+   tb_pegawai tpe
+join
+   tb_waktu_kerja twak
+on
+   tpe.id_pegawai = twak.id_pegawai
+group by
+   tpe.id_pegawai
+having jumlah_proyek >=4
+order by jumlah_proyek desc
+
+create view req_2_soal_l as
+select
+   tpe.nama_depan as 'nama_pegawai',
+avg(twak.waktu_kerja) as 'rata_rata_waktu_kerja',
+count(twak.id_proyek) as 'jumlah_proyek'
+from
+   tb_pegawai tpe
+join
+   tb_waktu_kerja twak
+on
+   tpe.id_pegawai = twak.id_pegawai
+group by
+   tpe.id_pegawai
+having rata_rata_waktu_kerja > 70
+and jumlah_proyek >=2
+
+create view req_2_soal_m as
+select
+   tt.hubungan_tanggungan,
+count(tt.hubungan_tanggungan) as 'banyaknya_tanggungan'
+from
+   tb_pegawai tpe
+join
+   tb_tanggungan tt
+on
+   tpe.id_pegawai = tt.id_pegawai
+group by
+   tt.hubungan_tanggungan 
+order by
+   banyaknya_tanggungan desc
+
+
+
+
+
+
+
+
+
+
+
+
+
