@@ -1,4 +1,4 @@
-package com.learning.thread;
+package sesi08.DemoThread.src.test.java.com.learning.thread;
 
 import org.junit.Test;
 
