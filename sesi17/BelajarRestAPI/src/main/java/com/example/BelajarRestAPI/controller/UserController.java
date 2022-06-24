@@ -1,17 +1,23 @@
-package com.example.BelajarRestAPI.controller;
+package com.example.belajarrestapi.controller;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-
-import com.example.BelajarRestAPI.service.UserService;
-
-import antlr.collections.List;
+import com.example.belajarrestapi.model.User;
+import com.example.belajarrestapi.service.UserService;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -39,8 +45,9 @@ public class UserController {
 
 	@CrossOrigin
 	@PostMapping("/users")
-	public void users(@RequestBody User user) {
+	public ResponseEntity<?> users(@RequestBody User user) {
 		userService.saveUser(user);
+		return new ResponseEntity<>("Save Users is Success...", HttpStatus.OK);
 	}
 
 	@CrossOrigin
@@ -53,7 +60,7 @@ public class UserController {
 			}
 			user.setId(id);
 			userService.saveUser(user);
-			return new ResponseEntity<>(HttpStatus.OK);
+			return new ResponseEntity<>("Update Users is Success...", HttpStatus.OK);
 		} catch (NoSuchElementException e) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
@@ -61,8 +68,9 @@ public class UserController {
 
 	@CrossOrigin
 	@DeleteMapping("/users/{id}")
-	public void delete(@PathVariable Integer id) {
+	public ResponseEntity<?> delete(@PathVariable Integer id) {
 		userService.deleteUser(id);
+		return new ResponseEntity<>("Delete Users is Success...", HttpStatus.OK);
 	}
 
 }

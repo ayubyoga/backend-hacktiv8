@@ -1,8 +1,8 @@
-package com.example.BelajarRestAPI.repository;
+package com.example.belajarrestapi.repository;
 
-import org.apache.catalina.User;
+import com.example.belajarrestapi.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
-		
-	}
+	
+}

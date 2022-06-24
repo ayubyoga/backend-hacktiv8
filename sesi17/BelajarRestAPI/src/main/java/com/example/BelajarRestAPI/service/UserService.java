@@ -1,15 +1,13 @@
-package com.example.BelajarRestAPI.service;
+package com.example.belajarrestapi.service;
 
-import java.util.List;
+import com.example.belajarrestapi.model.User;
+import com.example.belajarrestapi.repository.UserRepository;
 
-import javax.transaction.Transactional;
-
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.example.BelajarRestAPI.repository.UserRepository;
-
+import java.util.List;
 
 @Service
 @Transactional
