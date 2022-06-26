@@ -29,7 +29,7 @@ public class SwaggerConfig {
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("Test API")
+		return new ApiInfoBuilder().title("Test API yuhuuu")
 				.description("Test API reference for developers")
 				.license("Apache License Version 2.0")
 				.licenseUrl("https://www.apache.org/licenses/LICENSE-2.0")

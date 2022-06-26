@@ -18,9 +18,7 @@ Frequently Used:
 - Spring Boot DevTools
 - Spring Data JPA
 - Spring Web
-Next
-
-=Finish=
+Next, Finish
 
 
 <dependency> put in application.properties

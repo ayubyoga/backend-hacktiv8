@@ -52,27 +52,29 @@ dates dan binary data.
 Syntax
 Buka terminal dan eksekusi perintah berikut:
 	mongo
-Membuat database
-	use DATABASE_NAME
-Untuk melihat database
+- Membuat database		:
+	use database_name
+- Untuk melihat database	:
 	show dbs
 
-Membuat Collection
+- Membuat Collection	:
 	db.createCollection("NAME_COLLECTON")
 
-Menambahkan data
+- Menambahkan data		:
 	db.collection.insertOne()	->	untuk menambahkan document tunggal/single
 	db.collection.insertMany()	->	untuk menambahkan banyak document
 
-Read
+- Read				:
 	db.collection.find()
 
-Update
+- Update	:
 	db.collection.updateOne(filter, update)	->	ubah satu document
-	db.collection.updateMany(filter, update)	->	ubah banyak document sekaligus sesuai filter
+	db.collection.updateMany(filter, update)	->	ubah banyak document sekaligus sesuai 
+
+- filter	:
 	db.collection.replaceOne(filter, update)	->	ganti satu document dengan document yang baru
 
-Delete
+- Delete	:
 	db.collection.deleteOne(filter)	->	hapus satu document
 	db.collection.deleteMany(filter)	->	hapus banyak document sekaligus sesuai filter
 
@@ -147,3 +149,71 @@ bsonType : “string”,
 description : “Ukuran harus berupa karakter dan tidak boleh kosong!”
 },
 )
+
+
+Contoh Pembuatan Database :
+
+
+1. One to One
+- use kantor_polisi
+     membuat database kantor polisi 
+	- db.createCollection("tersangka");
+	- db.createCollection("jenis_kejahatan");
+	  membuat collection tersangka dan jenis_kejahatan 
+
+- db.tersangka.insertOne({ nama : "Asep", umur : 23 , jenis_kejahatan : "kejahatan_01"});
+    memasukkan data ke collection tersangka dengan field tersebut
+
+- db.jenis_kejahatan.insertOne({ _id : "kejahatan_01" , jenis_kejahatan : "pembunuhan"});
+    memasukkan data ke collection jenis_kejahatan dengan field tersebut
+
+- var jenis_kejahatan_id = db.tersangka.findOne().jenis_kejahatan
+    menyimpan data yang ada di collection jenis_kejahatan ke dalam variabel jenis_kejahatan_id
+
+- db.jenis_kejahatan.findOne({_id : jenis_kejahatan_id})
+    memanggil data yang ada di collection jenis_kejahatan dengan variabel jenis_kejahatan_id
+    
+Hasil Akhir : 
+    Dengan menyimpan data jenis_kejahatan tersangka, kita dapat mencari nama jenis_kejahatan di tabel jenis_kejahatan
+
+2. One to Many
+	Sebuah hubungan antara tabel dimana tabel A memiliki sebuah data yang bisa di pakai pada tabel B data 
+	tersebut bisa banyak data atau beberapa data saja.
+
+  Pengerjaan:
+  - use transaksi_hacktiv8
+    membuat database transaksi_hacktiv8
+  - db.createCollection("pelanggan");
+  - db.createCollection("transaksi");
+    membuat collection pelanggan dan transaksi
+  - db.pelanggan.insertOne({_id : "PL0001", nama_pelanggan : "Brudi"});
+    melakukan insert data ke collection pelanggan dengan field tersebut
+  - db.pelanggan.insertOne({_id : "TR0001", tanggal_transaksi : new Date(), total_harga : 100000, id_pelanggan : "PL0001"});
+    memasukkan data ke collection transaksi dengan field tersebut
+  -  db.transaksi.insertOne({_id: "TR0002", tanggal_transaksi: new Date(), total_harga: 120000, id_pelanggan: "PL0001" });
+    memasukkan data ke 2 di collection transaksi
+  -  db.transaksi.insertOne({_id: "TR0003", tanggal_transaksi: new Date(), total_harga: 150000, id_pelanggan: "PL0001" });
+    memasukkan data ke 3 di collection transaksi
+  - db.transaksi.find().pretty()
+    menampilkan isi dari collection transaksi
+    Hasil Akhir: 
+    Terlihat bahwa 3 data yang muncul memiliki id_pelanggan yang sama yaitu PL0001.
+
+3. Many to Many
+	
+
+  Pengerjaan:
+  - db.createCollection("detail_pembelian");
+    membuat collection baru bernama detail_pembelian
+
+  - db.detail_pembelian.insertOne({no_pembelian: "PL0001", barang: "iPhone", jumlah: 3});
+  - db.detail_pembelian.insertOne({no_pembelian: "PL0001", barang: "iPad", jumlah: 2});
+  - db.detail_pembelian.insertOne({no_pembelian: "PL0001", barang: "MacBook", jumlah: 2});
+  - db.detail_pembelian.insertOne({no_pembelian: "PL0001", barang: "Apple Watch", jumlah: 2});
+    
+   - db.detail_pembelian.find().pretty()
+   Hasil Akhir:
+   Tabel transaksi yang sudah berelasi dengan pelanggan dapat membuat hubungan kembali dengan tabel detail_pembelian sehinigga terjadilah hubungan many to many.
+
+VALIDASI
+- validasi adalah metode untuk melakukan pengecekan suatu data yang dimasukkan.
