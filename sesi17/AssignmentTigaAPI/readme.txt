@@ -3,7 +3,6 @@ Kode Peserta			: JVSB001ONL016
 Link Github				: github.com/ayubyoga
 Panduan Penggunaan Aplikasi   :
 
-- landing page masih belum berhasil, saya stuck dalam pengerjaannya. jika masih ada kesempatan akan saya coba perbaiki.
 
 langkah-langkah :
 1. Eclipse / VS Code
