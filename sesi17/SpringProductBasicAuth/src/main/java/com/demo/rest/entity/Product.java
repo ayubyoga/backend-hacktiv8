@@ -1,63 +1,34 @@
 package com.demo.rest.entity;
 
-import com.demo.rest.entity;
-import com.demo.rest.GeneratedValue;
-import com.demo.rest.GenerationType;
-import com.demo.rest.Id;
-import com.demo.rest.Table;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
 
 @Entity
-@Table(name="tb_product")
+@Table(name = "tb_product")
+@Data
 public class Product {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
-	private int id;
-	private String nama;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
+	@Column(name = "nama", unique = true)
+	private String name;
+
+	@Column(name = "hargaBeli")
 	private int hargaBeli;
+
+	@Column(name = "hargaJual")
 	private int hargaJual;
-	
-	public Product() {
+
+	public void setId(Long id2) {
+		// TODO Auto-generated method stub
 		
-	}
-	
-	public Product(int id, String nama, int hargaBeli, int hargaJual) {
-		
-		this.id = id;
-		this.nama = nama;
-		this.hargaBeli = hargaBeli;
-		this.hargaJual = hargaJual;
-	}
-	
-	
-	public int getId() {
-		return id;
-	}
-	
-	public void setId(int id) {
-		this.id=id;
-	}
-	
-	public void setNama(String nama) {
-		this.nama = nama;
-	}
-	
-	public String getNama() {
-		return nama;
-	}
-	
-	public void setHargaBeli(int hargaBeli) {
-		this.hargaBeli = hargaBeli;
-	}
-	
-	public int getHargaBeli() {
-		return hargaBeli;
-	}
-	public void setHargaJual(int hargaJual) {
-		this.hargaJual = hargaJual;
-	}
-	
-	public int getHargaJual() {
-		return hargaJual;
 	}
 }
