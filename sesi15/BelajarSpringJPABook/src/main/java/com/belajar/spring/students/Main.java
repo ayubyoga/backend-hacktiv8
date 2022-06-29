@@ -23,12 +23,12 @@ public class Main implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		Student student = new Student("Bagus Oktavian", 15);
+		Student student = new Student("Ayub Yoga Pratama", 25);
 		studentRepository.save(student);
 
-		Course course1 = new Course("Beggining Spring Boot", 12, 1500);
-		Course course2 = new Course("Spring Reactive", 8, 800);
-		Course course3 = new Course("Microservices Architecture", 9, 100);
+		Course course1 = new Course("Komputasi Meteorologi", 12, 1500);
+		Course course2 = new Course("Instrumentasi Meteorologi", 8, 800);
+		Course course3 = new Course("Pemodelan Meteorologi", 9, 100);
 
 		courseRepository.saveAll(Arrays.asList(course1, course2, course3));
 
@@ -45,4 +45,3 @@ public class Main implements CommandLineRunner {
 	}
 
 }
-

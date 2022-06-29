@@ -1,4 +1,4 @@
-package com.learning.thread;
+package sesi08.DemoThread.src.main.java.com.learning.thread;
 
 import java.util.Random;
 

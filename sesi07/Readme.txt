@@ -1,10 +1,11 @@
-Sesi 7
------------------------------------------
+===================================================
+                    Sesi 07
+===================================================
+
 
 Algorithm
  - algoritma tidak hanya identik dengan program komputer saja
- - dekat dengan kehidupan kita : memasak mie dari menyiapkan mie sampai mie siap saji
-
+ - flow pekerjaan yang bisa kita lakukan
 
 Sort Algoritm
     Sorting, merupakan proses mengurutkan data baik secara ascending ataupun descending

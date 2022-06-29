@@ -1,3 +1,8 @@
+===================================================
+                    Sesi 16
+===================================================
+
+
 Spring Web + Thymeleaf
 
 -> Spring Web adalah salah satu projek yang membantu kita untuk membuat sebuah aplikasi web (yang bisa berjalan menggunakan browser) dan Spring Web ini pasti menggunakan 
@@ -19,8 +24,7 @@ Cara jalanin BelajarSpringBoot
 - Dashboard boot
 - restart
 - open web browser
-- http://localhost:8080/
-- http://localhost:8080/hello?name=Indirwan
+- http://localhost:8080/hello?name=yoga
 
 Tambahkan depedency dibawah ini di pom.xml
 		<dependency>

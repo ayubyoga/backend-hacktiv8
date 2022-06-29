@@ -1,4 +1,4 @@
-package com.learning.thread;
+package sesi08.DemoThread.src.main.java.com.learning.thread;
 
 public class ThreadNumber extends Thread {
     private final NumberGenerator ng;

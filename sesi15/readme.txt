@@ -1,8 +1,6 @@
-Dynamic web module 5
-Target runtuime ->new -> apache v10-> centang create->next -> download & install/ browse apache-> pilih jre jdk 17
-
-
-================================================
+===================================================
+                    Sesi 15
+===================================================
 
 Start Project
 Klik kanan
@@ -40,8 +38,6 @@ spring.datasource.hikari.auto-commit=true
 spring.jpa.database-platform=org.hibernate.dialect.MySQL5Dialect
 spring.jpa.hibernate.ddl-auto=update
 
-
-=Meaning=
 
 @SpringBootApplication is a convenience annotation that adds all of the following:
 

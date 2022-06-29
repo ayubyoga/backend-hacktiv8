@@ -52,7 +52,7 @@ public class Role {
 
 	public Object getName() {
 		// TODO Auto-generated method stub
-		return null;
+		return name;
 	}
 
 	public Role(Integer id, ERole name) {

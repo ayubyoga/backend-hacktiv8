@@ -1,131 +1,42 @@
 package com.yoga.bus;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
+import java.util.Arrays;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-import com.yoga.bus.models.User;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiKey;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-public class FinalProjectYogaApplication implements UserDetails {
-	private static final long serialVersionUID = 1L;
-
-	private Long id;
-
-	private String username;
-
-	private String email;
-
-	private String firstName;
-
-	private String lastName;
-
-	private String mobileNumber;
-
-	@JsonIgnore
-	private String password;
-
-	private Collection<? extends GrantedAuthority> authorities;
-
-	public FinalProjectYogaApplication(Long id, String username, String email, String password, String firstName, String lastName,
-			String mobileNumber, Collection<? extends GrantedAuthority> authorities) {
-		this.id = id;
-		this.username = username;
-		this.email = email;
-		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.mobileNumber = mobileNumber;
-		this.authorities = authorities;
-	}
-
-	public static FinalProjectYogaApplication build(User user) {
-		List<GrantedAuthority> authorities = user.getRoles().stream()
-				.map(role -> new SimpleGrantedAuthority(role.getName().name())).collect(Collectors.toList());
-
-		return new FinalProjectYogaApplication(user.getId(), user.getUsername(), user.getEmail(), user.getPassword(),
-				user.getFirstName(), user.getLastName(), user.getMobileNumber(), authorities);
-	}
+@SpringBootApplication
+@EnableJpaAuditing
+@EnableSwagger2
+public class FinalProjectYogaApplication {
 
 	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return authorities;
+	public String toString() {
+		return "FinalProjectYogaApplication [postsApi()=" + postsApi() + ", apiKey()=" + apiKey() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
 
-	public Long getId() {
-		return id;
+	public static void main(String[] args) {
+		SpringApplication.run(FinalProjectYogaApplication.class, args);
 	}
 
-	public String getEmail() {
-		return email;
+	@Bean
+	public Docket postsApi() {
+		return new Docket(DocumentationType.SWAGGER_2).select()
+				.apis(RequestHandlerSelectors.basePackage("com.yoga.bus.controller")).build()
+				.securitySchemes(Arrays.asList(apiKey()));
 	}
 
-	@Override
-	public String getPassword() {
-		return password;
+	private ApiKey apiKey() {
+		return new ApiKey("apiKey", "Authorization", "header");
 	}
 
-	@Override
-	public String getUsername() {
-		return username;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getMobileNumber() {
-		return mobileNumber;
-	}
-
-	public void setMobileNumber(String mobileNumber) {
-		this.mobileNumber = mobileNumber;
-	}
-
-	@Override
-	public boolean isAccountNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		return true;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		return true;
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o)
-			return true;
-		if (o == null || getClass() != o.getClass())
-			return false;
-		FinalProjectYogaApplication user = (FinalProjectYogaApplication) o;
-		return Objects.equals(id, user.id);
-	}
 }
